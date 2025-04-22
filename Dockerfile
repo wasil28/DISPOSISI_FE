@@ -26,21 +26,23 @@ COPY --chown=node:node *.ts /app/
 COPY --chown=node:node *.js /app/
 COPY --chown=node:node *.json /app/
 
-
 USER root
 RUN npm run build
 
 FROM node:22.3.0-alpine3.19 AS production-stage
-
 RUN mkdir -p /app && chown -R node:node /app
 WORKDIR /app
 
-COPY --from=build-stage /app/.output /app/.output
+RUN apk add --no-cache \
+    supervisor \
+    nginx \
+    tzdata
 
-USER root
-RUN apk add --no-cache tzdata
+COPY --from=build-stage /app/.output /app/.output
+COPY nginx.config /etc/nginx/http.d/default.conf
+COPY supervisord.conf /etc/supervisord.conf
+
 ENV TZ Asia/Jakarta
 RUN date
-USER node
-EXPOSE 3000
-CMD ["node", ".output/server/index.mjs"]
+EXPOSE 80
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
