@@ -1,0 +1,66 @@
+.pre-bg-blue-400 {
+  @apply bg-blue-400;
+}
+
+.pre-text-blue-400 {
+  @apply text-blue-400;
+}
+
+.\!pre-text-blue-400 {
+  @apply text-blue-400 #{!important};
+}
+.pre-bg-gray-400 {
+  @apply bg-gray-400;
+}
+
+.pre-text-gray-400 {
+  @apply text-gray-400;
+}
+
+.\!pre-text-gray-400 {
+  @apply text-gray-400 #{!important};
+}
+.pre-bg-emerald-400 {
+  @apply bg-emerald-400;
+}
+
+.pre-text-emerald-400 {
+  @apply text-emerald-400;
+}
+
+.\!pre-text-emerald-400 {
+  @apply text-emerald-400 #{!important};
+}
+.pre-bg-cyan-400 {
+  @apply bg-cyan-400;
+}
+
+.pre-text-cyan-400 {
+  @apply text-cyan-400;
+}
+
+.\!pre-text-cyan-400 {
+  @apply text-cyan-400 #{!important};
+}
+.pre-bg-lime-600 {
+  @apply bg-lime-600;
+}
+
+.pre-text-lime-600 {
+  @apply text-lime-600;
+}
+
+.\!pre-text-lime-600 {
+  @apply text-lime-600 #{!important};
+}
+.pre-bg-slate-500 {
+  @apply bg-slate-500;
+}
+
+.pre-text-slate-500 {
+  @apply text-slate-500;
+}
+
+.\!pre-text-slate-500 {
+  @apply text-slate-500 #{!important};
+}

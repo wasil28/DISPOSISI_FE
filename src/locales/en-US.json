@@ -1,0 +1,141 @@
+{
+  "welcome_message": "Hello, welcome to Curriculum Application Universitas Terbuka.",
+  "copyright": "Copyright",
+  "logout": "Logout",
+  "logout_confirmation": "Confirmation",
+  "logout_body_text": "Are you sure you want to logout?",
+  "login_form": {
+    "login_to": "Login",
+    "type_email": "Type your email",
+    "type_password": "Type your password",
+    "forgot_password": "Forgot Password?",
+    "dont_have_account": "Don't have account?",
+    "sign_up": "Sign Up",
+    "or_login_with": "or login with",
+    "login_condition": "UT Students Please Login Using Microsoft 365",
+    "login": "Login"
+  },
+  "forgot_password": {
+    "header_title": "Forgot Password",
+    "body_text": "Type email address which connected to your Curriculum Application. We'll send a link to reset your password to the email.",
+    "retype_password": "Retype your password"
+  },
+  "landing_page": {
+    "guide": "Guide",
+    "total_students": "Total Students",
+    "program_info": "Program Information",
+    "program_list": "List Programs",
+    "registration_schedule": "Registration Schedule",
+    "registration_schedule_empty": "Currently not available",
+    "quota_tawar": "Quota",
+    "attachment": "Attachment"
+  },
+  "register_form": {
+    "header_register": "Account Registration",
+    "button_register": "Register",
+    "placeholder_negara": "Enter your country",
+    "placeholder_nik": "Enter your NIK",
+    "placeholder_nama": "Enter your name",
+    "placeholder_email": "Enter your email",
+    "placeholder_password": "Enter your password",
+    "placeholder_konfirmasi_password": "Confirm your password",
+    "country": "Country",
+    "name": "Name",
+    "disclaimer": "I agree with the applied terms and sure that all the data submitted was true and as is",
+    "register_succeeded": "Register succeeded! Please check your email.",
+    "answer_question": "Please answer the following question *",
+    "back_to_login": "Back to Login page",
+    "helper_password": "Minimum 8 characters & include special character"
+  },
+  "portal": {
+    "dashboard": {
+      "join_this_program": "Join This Program?",
+      "you_chose_this_program": "You chose this program",
+      "click_join_to": "Click Join button to proceed the program registration",
+      "select_offered_program": "Select Offered Program",
+      "tnc": "Terms & Conditions",
+      "quota_left": "Quota Left",
+      "select_program": "Select Program",
+      "hello": "Hello",
+      "announcement": "Announcement",
+      "academic_calendar": "Academic Calendar",
+      "helpdesk": "Helpdesk",
+      "student_id": "Student ID",
+      "student_identity": "NIK",
+      "no_passport": "Passport Number",
+      "service_type": "Service Type",
+      "study_program": "Study Program",
+      "registration_status": "Registration Program",
+      "view_detail": "View Detail",
+      "participant_number": "Participant Number",
+      "university_info": "University Info",
+      "university": "University",
+      "nim": "Student ID"
+    }
+  },
+  "utils": {
+    "action": {
+      "save": "Save",
+      "search": "Search",
+      "close": "Close",
+      "join": "Join",
+      "back": "Back",
+      "yes": "Yes",
+      "no": "No",
+      "view": "View",
+      "view_more": "View more",
+      "view_less": "View less",
+      "download": "Download"
+    },
+    "table": {
+      "add": "Add Data",
+      "add_summer_course": "Add Summer Course",
+      "back": "Back",
+      "edit": "Edit",
+      "delete": "Delete",
+      "search": "Search",
+      "search_data": "Find Data",
+      "export_csv": "Export CSV",
+      "export_xlsx": "Export XLSX",
+      "rows_per_page": "Rows per page",
+      "columns": "Columns",
+      "reset_filter": "Reset Filter",
+      "showing": "Showing",
+      "of": "of"
+    },
+    "modal": {
+      "confirmation": "Confirmation Delete Data",
+      "save_failed": "Save Failed",
+      "success": "Success",
+      "delete": {
+        "body_text": "Are you sure delete",
+        "button_text": "Delete"
+      }
+    }
+  },
+  "forms": {
+    "required": "Required",
+    "masters": {
+      "topic_summer_course_title": "Summer Course Topic Form",
+      "offer_program_title": "Offer Program Form",
+
+    },
+    "utilities": {
+      "users": {
+        "username": "Username",
+        "fullname": "Full Name",
+        "confirm_password": "Confirm Password",
+        "select_roles": "Select Roles",
+        "select_prodi": "Select Study Program",
+        "select_program_type": "Select Program Type",
+      }
+    },
+    "validation": {
+      "required": "This field is required",
+      "invalid": "Input invalid",
+      "number_only": "Only accept number input",
+      "minimum": "Minimum",
+      "characters": "Characters"
+    }
+  }
+}

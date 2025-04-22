@@ -1,0 +1,141 @@
+{
+  "welcome_message": "Halo, selamat datang pada Aplikasi BSSN TTE Universitas Terbuka.",
+  "copyright": "Hak Cipta",
+  "logout": "Keluar",
+  "logout_confirmation": "konfirmasi",
+  "logout_body_text": "Apakah Anda yakin ingin logout dari aplikasi?",
+  "login_form": {
+    "login_to": "Masuk",
+    "type_email": "Ketikkan email Anda",
+    "type_password": "Ketikkan password Anda",
+    "forgot_password": "Lupa Password?",
+    "dont_have_account": "Belum punya akun?",
+    "sign_up": "Registrasi",
+    "or_login_with": "atau masuk menggunakan",
+    "login_condition": "Mahasiswa UT Silakan Login Menggunakan Microsoft 365",
+    "login": "Masuk"
+  },
+  "forgot_password": {
+    "header_title": "Lupa Password",
+    "body_text": "Ketikkan alamat email yang terhubung dengan akun Apliksi BSSN TTE. Kami akan mengirimkan tautan untuk melakukan reset password ke email tersebut.",
+    "retype_password": "Ketikkan ulang password Anda"
+  },
+  "landing_page": {
+    "guide": "Panduan",
+    "total_students": "Jumlah Mahasiswa",
+    "program_info": "Informasi Program",
+    "program_list": "Daftar Program",
+    "registration_schedule": "Jadwal Registrasi",
+    "registration_schedule_empty": "Belum tersedia",
+    "quota_tawar": "Kuota",
+    "attachment": "Lampiran"
+  },
+  "register_form": {
+    "header_register": "Registrasi Akun",
+    "button_register": "Registrasi",
+    "placeholder_negara": "Masukkan negara Anda",
+    "placeholder_nik": "Masukkan NIK Anda",
+    "placeholder_nama": "Masukkan nama Anda",
+    "placeholder_email": "Masukkan alamat email Anda",
+    "placeholder_password": "Masukkan kata sandi Anda",
+    "placeholder_konfirmasi_password": "Konfirmasi kata sandi Anda",
+    "country": "Negara",
+    "name": "Nama",
+    "disclaimer": "Saya setuju dengan ketentuan yang berlaku serta meyakini bahwa data yang dimasukan benar apa adanya",
+    "register_succeeded": "Registrasi berhasil! Silakan cek email Anda.",
+    "answer_question": "Mohon jawab pertanyaan berikut ini *",
+    "back_to_login": "Kembali ke halaman Login",
+    "helper_password": "Minimal 8 karakter & terdapat karakter spesial"
+  },
+  "portal": {
+    "dashboard": {
+      "join_this_program": "Gabung Program Ini?",
+      "you_chose_this_program": "Anda memilih program",
+      "click_join_to": "Klik tombol Gabung untuk melanjutkan proses registrasi program",
+      "select_offered_program": "Pilih Program Ditawarkan",
+      "tnc": "Syarat & Ketentuan",
+      "quota_left": "Sisa Kuota",
+      "select_program": "Pilih Program",
+      "hello": "Halo",
+      "announcement": "Pengumuman",
+      "academic_calendar": "Kalender Akademik",
+      "helpdesk": "Bantuan Layanan",
+      "student_id": "NIM",
+      "student_identity": "NIK",
+      "no_passport": "Nomor Passport",
+      "service_type": "Jenis Layanan",
+      "study_program": "Program Studi",
+      "registration_status": "Status Registrasi",
+      "view_detail": "Lihat Detail",
+      "participant_number": "No. Peserta",
+      "university_info": "Asal Perguruan Tinggi",
+      "university": "Perguruan Tinggi",
+      "nim": "NIM Asal"
+    }
+  },
+  "utils": {
+    "action": {
+      "save": "Simpan",
+      "search": "Cari",
+      "close": "Tutup",
+      "join": "Gabung",
+      "back": "Kembali",
+      "yes": "Ya",
+      "no": "Tidak",
+      "view": "Lihat",
+      "view_more": "Lihat lebih banyak",
+      "view_less": "Lihat lebih sedikit",
+      "download": "Unduh"
+    },
+    "table": {
+      "add": "Tambah Data",
+      "add_summer_course": "Tambah Topik Summer Course",
+      "back": "Kembali",
+      "edit": "Ubah",
+      "delete": "Hapus",
+      "search": "Pencarian",
+      "search_data": "Cari Data",
+      "export_csv": "Export CSV",
+      "export_xlsx": "Export XLSX",
+      "rows_per_page": "Baris per halaman",
+      "columns": "Kolom",
+      "reset_filter": "Hapus Filter",
+      "showing": "Menampilkan",
+      "of": "dari"
+    },
+    "modal": {
+      "confirmation": "Konfirmasi Hapus Data",
+      "save_failed": "Gagal Simpan",
+      "success": "Berhasil",
+      "delete": {
+        "body_text": "Anda yakin akan menghapus data",
+        "button_text": "Hapus"
+      }
+    }
+  },
+  "forms": {
+    "required": "Wajib diisi",
+    "masters": {
+      "topic_summer_course_title": "Form Topik Summer Course",
+      "offer_program_title": "Form Program Tawar"
+
+    },
+    "utilities": {
+      "users": {
+        "username": "Nama Pengguna",
+        "fullname": "Nama Lengkap",
+        "confirm_password": "Konfirmasi Password",
+        "select_roles": "Pilih Role",
+        "select_prodi": "Pilih Program Studi",
+        "select_program_type": "Pilih Tipe Program",
+      }
+    },
+    "validation": {
+      "required": "Wajib diisi",
+      "invalid": "Input tidak valid",
+      "number_only": "Hanya menerima input berupa angka",
+      "minimum": "Minimal",
+      "characters": "Karakter"
+    }
+  }
+}
