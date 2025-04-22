@@ -1,0 +1,65 @@
+stages:
+  - build_push
+  - deploy_development
+  - deploy_aks
+
+variables:
+  DOCKER_TLS_CERTDIR: ""
+  DOCKER_REPO: $REGISTRY_PROJECT/tte-bssn-frontend
+  SERVICE_NAME: tte-bssn-frontend
+
+build_push:
+  stage: build_push
+  image: docker:19.03-dind
+  services:
+    - name: docker:19.03-dind
+      command: ["--insecure-registry=reg-v1.ut.ac.id"]
+  script:
+    - echo "$REGISTRY_PASSWORD" | docker login $REGISTRY_SERVER -u $REGISTRY_USERNAME --password-stdin
+    - echo "Building docker image"
+    - if [ $CI_COMMIT_BRANCH = "development" ]; then docker build --build-arg ARG_BASE_SCERET_FRONTEND=$BASE_SECRET_FRONTEND --build-arg ARG_DIR_SECRET=env-ut/tte-bssn-frontend-dev/.env -t $DOCKER_REPO:$CI_COMMIT_SHORT_SHA . ; fi
+    - if [ $CI_COMMIT_BRANCH = "master" ]; then docker build --build-arg ARG_BASE_SCERET_FRONTEND=$BASE_SECRET_FRONTEND --build-arg ARG_DIR_SECRET=env-ut/tte-bssn-frontend-prod/.env -t $DOCKER_REPO:$CI_COMMIT_SHORT_SHA . ; fi
+    - echo "Pushing docker image to registry"
+    - if [ $CI_COMMIT_BRANCH = "development" ]; then docker push $DOCKER_REPO:$CI_COMMIT_SHORT_SHA ; fi
+    - if [ $CI_COMMIT_BRANCH = "master" ]; then docker push $DOCKER_REPO:$CI_COMMIT_SHORT_SHA ; fi
+    - if [ -n "$CI_COMMIT_TAG" ]; then docker push $DOCKER_REPO:$CI_COMMIT_TAG ; fi
+    - echo "Docker image has been successfully pushed to registry"
+  only:
+    - development
+    - master
+    - tags
+  retry:
+    max: 2
+    when: always
+
+deploy_development:
+  stage: deploy_development
+  image:
+    name: bitnami/kubectl:latest
+    entrypoint: [""]
+  script:
+    - echo -n $KUBECONFIG_DEV | base64 -d > ./config
+    - echo "Deploying service"
+    - kubectl --kubeconfig ./config set image deployment/$SERVICE_NAME $SERVICE_NAME=$DOCKER_REPO:$CI_COMMIT_SHORT_SHA
+    - echo "Service $SERVICE_NAME has been deployed to DEV"
+  retry:
+    max: 2
+    when: always
+  only:
+    - development
+
+deployment_aks:
+  stage: deploy_aks
+  image:
+    name: bitnami/kubectl:latest
+    entrypoint: [""]
+  when: manual
+  script:
+    - echo -n $KUBECONFIG_SRS_AKS | base64 -d > ./config_aks
+    - kubectl --kubeconfig ./config_aks set image deployment/$SERVICE_NAME_PROD $SERVICE_NAME_PROD=$DOCKER_REPO:$CI_COMMIT_SHORT_SHA
+    - echo "Service $SERVICE_NAME_PROD has been deployed to AKS"
+  retry:
+    max: 2
+    when: always
+  only:
+    - master

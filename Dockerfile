@@ -1,5 +1,4 @@
-#FROM node:22.3.0-alpine3.19 AS build-stage
-FROM reg-v1.ut.ac.id/base-images/node:22.2.0-alpine AS build-stage
+FROM node:22.3.0-alpine3.19 AS build-stage
 RUN mkdir -p /app && chown -R node:node /app
 WORKDIR /app
 USER root
@@ -31,8 +30,8 @@ COPY --chown=node:node *.json /app/
 USER root
 RUN npm run build
 
-#FROM node:22.3.0-alpine3.19 AS production-stage
-FROM reg-v1.ut.ac.id/base-images/node:22.2.0-alpine AS production-stage
+FROM node:22.3.0-alpine3.19 AS production-stage
+
 RUN mkdir -p /app && chown -R node:node /app
 WORKDIR /app
 
