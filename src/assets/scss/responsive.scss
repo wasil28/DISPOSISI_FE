@@ -1,0 +1,23 @@
+$breakpoint-small: 768px;
+$breakpoint-medium: 1024px;
+
+@media screen and (max-width: $breakpoint-medium) {
+  .table-fixed {
+    tbody {
+      tr {
+        td {
+          @apply max-w-full text-left;
+
+          &::before {
+            content: "";
+            @apply hidden;
+          }
+        }
+      }
+    }
+  }
+
+  div.flex.items-center.justify-between.gap-3.px-4.py-3 {
+    @apply flex-col overflow-auto items-start
+  }
+}

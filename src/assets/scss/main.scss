@@ -1,0 +1,146 @@
+button {
+  @apply transition-all duration-150;
+}
+
+input, select, textarea {
+  &::placeholder {
+    color: #B8B8B8;
+  }
+
+  &:disabled {
+    @apply bg-ut-bgGray;
+  }
+
+  &:active, &:focus {
+    --tw-ring-color: #0055D0 !important;
+  }
+}
+
+.form-checkbox {
+  &:checked {
+    background-color: #0055D0 !important;
+  }
+}
+
+button {
+  &:disabled {
+    background-color: #EAEAEA !important;
+  }
+
+  &:active, &:focus {
+    --tw-ring-color: #0055D0 !important;
+  }
+}
+
+.form-radio {
+  &:checked, &:active {
+    @apply bg-ut-actionBlue;
+
+    &:hover, &:focus {
+      @apply bg-ut-actionBlue;
+    }
+  }
+}
+
+.router-link-active.router-link-exact-active {
+  @apply text-ut-bgYellow
+}
+
+.sidebar-portal {
+  .router-link-active.router-link-exact-active {
+    @apply bg-ut-bgCardGray dark:bg-slate-500 dark:text-gray-300 text-ut-asideBlue hover:text-ut-asideBlue rounded-l-full
+  }
+}
+
+.swal2-container {
+  .swal2-popup {
+    .swal2-icon {
+      @apply mt-4 mb-0 scale-[85%];
+    }
+
+    .swal2-title {
+      @apply text-xl pt-2;
+    }
+
+    .swal2-html-container {
+      @apply text-base mt-2.5;
+    }
+
+    .swal2-actions {
+      @apply mt-3;
+
+      > button {
+        @apply text-sm font-semibold py-2;
+      }
+    }
+  }
+}
+
+.ring-current {
+  @apply ring-ut-primaryBlue bg-ut-primaryBlue text-white hover:bg-ut-bgBlue-hover;
+}
+
+.table-fixed {
+  thead {
+    tr {
+      th {
+        @apply bg-ut-actionBlue text-white font-semibold text-xs;
+
+        button {
+          @apply text-white font-semibold text-xs hover:bg-transparent hover:text-white;
+        }
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        @apply border-0 text-xs text-ut-tableBody py-2 align-top;
+      }
+
+      &:nth-child(2n+1) {
+        @apply bg-ut-subtleWhite dark:bg-slate-800;
+      }
+    }
+  }
+}
+
+.table-selectable {
+  thead {
+    tr {
+      th:first-child {
+        @apply w-9;
+        input[type="checkbox"] {
+          @apply hidden;
+        }
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        input[type="checkbox"] {
+          @apply h-3.5 w-3.5 pointer-events-none;
+        }
+      }
+    }
+  }
+}
+
+.tiptap-editor {
+  @apply rounded-b-md;
+  
+  .tiptap {
+    @apply h-full p-1.5 overflow-auto rounded-b-md;
+
+    * {
+      @apply text-sm;
+    }
+  }
+}
+
+.item-disabled {
+  @apply grayscale;
+}
