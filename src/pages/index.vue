@@ -54,8 +54,8 @@ onBeforeMount( async () => {
       //   navigateTo('/adminpanel/pengembangan-rps/rps', { replace: true })
       // }
       // else {
-      console.log(rolesUser, 'rolesUser')
-        navigateTo('/adminpanel', { replace: true })
+      // console.log(rolesUser, 'rolesUser')
+      //   navigateTo('/adminpanel', { replace: true })
       // }
     }
     stopLoading()
