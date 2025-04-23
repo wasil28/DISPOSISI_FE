@@ -57,7 +57,9 @@ onBeforeMount( async () => {
       // }
       // else {
       // console.log(rolesUser, 'rolesUser')
-      //   navigateTo('/adminpanel', { replace: true })
+      if(session.value?.token){
+        await navigateTo('/adminpanel', { replace: true })
+      }
       // }
     }
     stopLoading()
