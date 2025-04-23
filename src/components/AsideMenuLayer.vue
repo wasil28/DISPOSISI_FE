@@ -53,7 +53,7 @@ const confirmLogout = () => {
     <div class="aside flex-1 flex flex-col overflow-hidden" :class="isPortal ? 'lg:rounded-none' : 'lg:rounded-2xl'">
       <div class="aside-brand flex flex-row h-16 mb-5 items-center justify-center">
         <div class="flex justify-center flex-1 lg:text-left lg:pl-6 xl:text-center xl:pl-0">
-          <img class="w-24" src="/tte-bssn/assets/images/logo-ut-white.png" alt="Logo Universitas Terbuka">
+          <img class="w-24" :src="`${useNuxtApp().$config.app.baseURL}assets/images/logo-ut-white.png`" alt="Logo Universitas Terbuka">
         </div>
         <button class="hidden lg:inline-block xl:hidden p-3" @click.prevent="asideLgCloseClick">
           <BaseIcon :path="mdiClose" />

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import imageDissaprove from '~/public/tte-bssn/assets/images/illustration/registrasi-mbkm-ditolak.png'
+import imageDissaprove from '~/public/assets/images/illustration/registrasi-mbkm-ditolak.png'
 
 const props = defineProps({
   modelValue: {
