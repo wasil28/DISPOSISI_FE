@@ -58,8 +58,8 @@ watch(localeUserSetting, () => {
   <SectionFullScreen>
     <UForm :schema="schema" :state="dataForm" class="flex justify-around items-center h-screen w-screen bg-ut-bgBlue dark:bg-slate-900" @submit="submitForgotPassword">
       <NuxtLink class="fixed top-5 left-0 bg-white rounded-r-full pr-6 pl-2.5 py-3 hidden md:flex items-center gap-x-2" to="/">
-        <img class="h-14" src="/assets/images/logo-ut-color.png" alt="Logo UT">
-        <img class="h-10" src="/assets/images/logo-kampus-merdeka.png" alt="Logo Kampus Merdeka">
+        <img class="h-14" src="/tte-bssn/assets/images/logo-ut-color.png" alt="Logo UT">
+        <img class="h-10" src="/tte-bssn/assets/images/logo-kampus-merdeka.png" alt="Logo Kampus Merdeka">
       </NuxtLink>
       <div class="hidden md:block w-1/3 text-center relative">
         <div class="absolute top-12 2xl:top-16 w-full">
@@ -70,7 +70,7 @@ watch(localeUserSetting, () => {
             Merdeka Belajar Kampus Merdeka
           </h1>
         </div>
-        <img class="w-full" src="/assets/images/illustration/login-form.png" alt="Login Illustration">
+        <img class="w-full" src="/tte-bssn/assets/images/illustration/login-form.png" alt="Login Illustration">
       </div>
       <div class="w-100 h-100 py-12 px-14 shadow-lg bg-white dark:bg-slate-800 rounded-xl">
         <h1 class="text-2xl block text-left text-ut-textBlue dark:text-white font-bold mb-4">

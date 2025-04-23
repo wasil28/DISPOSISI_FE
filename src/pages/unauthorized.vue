@@ -7,7 +7,7 @@ useHead({
 <template>
   <div class="error-container">
     <div>
-      <img class="!aspect-auto" src="/assets/images/unauthorized.webp" alt="Unauthorized Image" width="400px">
+      <img class="!aspect-auto" src="/tte-bssn/assets/images/unauthorized.webp" alt="Unauthorized Image" width="400px">
       <h1 class="text-center font-semibold">
         Anda tidak memiliki akses pada laman ini.
       </h1>

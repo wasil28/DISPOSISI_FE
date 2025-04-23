@@ -36,7 +36,7 @@ onMounted(async () => {
     Swal.fire({
       title: 'Gagal Verifikasi, Pastikan URL benar',
       text: isVerif.message,
-      imageUrl: '/assets/images/illustration/error-image.png',
+      imageUrl: '/tte-bssn/assets/images/illustration/error-image.png',
       imageWidth: 400,
       imageHeight: 200,
       imageAlt: 'Custom image',

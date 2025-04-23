@@ -72,7 +72,7 @@ const login = async (event: any) => {
     Swal.fire({
       title: 'Gagal Login',
       text: 'silakan isi captcha terlebih dahulu',
-      imageUrl: '/assets/images/illustration/error-image.png',
+      imageUrl: '/tte-bssn/assets/images/illustration/error-image.png',
       imageWidth: 400,
       imageHeight: 200,
       imageAlt: 'Custom image',
@@ -84,7 +84,7 @@ const login = async (event: any) => {
   //   Swal.fire({
   //     title: 'Gagal Login',
   //     text: 'silakan login menggunakan Microsoft 365',
-  //     imageUrl: '/assets/images/illustration/error-image.png',
+  //     imageUrl: '/tte-bssn/assets/images/illustration/error-image.png',
   //     imageWidth: 400,
   //     imageHeight: 200,
   //     imageAlt: 'Custom image',
@@ -216,7 +216,7 @@ const loginSso = async () => {
               //   Swal.fire({
               //     title: 'Gagal Login',
               //     text: 'Akun anda tidak memenuhi syarat',
-              //     imageUrl: '/assets/images/illustration/error-image.png',
+              //     imageUrl: '/tte-bssn/assets/images/illustration/error-image.png',
               //     imageWidth: 400,
               //     imageHeight: 200,
               //     imageAlt: 'Custom image',
@@ -302,10 +302,10 @@ watch(localeUserSetting, () => {
   <SectionFullScreen>
     <UForm :schema="schema" :state="dataForm" class="bg-ornament flex justify-around items-center h-screen w-screen bg-transparent bg-gradient-to-t from-[#BAD8FF] to-transparent from-10% 2xl:to-35% to-40% dark:bg-slate-900" @submit="login">
       <NuxtLink class="fixed top-5 left-0 bg-white shadow-md rounded-r-full pr-6 pl-4 py-2 hidden md:flex items-center gap-x-2" to="/">
-        <img class="h-14" src="/assets/images/logo-ut-color.png" alt="Logo UT">
+        <img class="h-14" src="/tte-bssn/assets/images/logo-ut-color.png" alt="Logo UT">
       </NuxtLink>
       <div class="hidden md:block w-2/5 2xl:w-1/3 2xl:ml-56 md:ml-28 text-center relative">
-        <img class="w-full" src="/assets/images/illustration/bssn.png" alt="Login Illustration">
+        <img class="w-full" src="/tte-bssn/assets/images/illustration/bssn.png" alt="Login Illustration">
       </div>
       <div class="2xl:!w-[21%] z-10 md:!w-[30%] !w-[94%] h-100 p-0 bg-transparent dark:bg-slate-800 rounded-xl ml-auto 2xl:mr-60 md:mr-28 mr-auto">
         <h1 class="text-3xl block text-left text-ut-textBlue dark:text-white font-extrabold mb-6">
@@ -356,7 +356,7 @@ watch(localeUserSetting, () => {
           <!-- <small class="block mt-1 mb-2 text-center text-xs text-ut-textBlue">{{ t('login_form.dont_have_account') }} <NuxtLink class="text-ut-bgBlue font-semibold" to="/registrasi">{{ t('login_form.sign_up') }}</NuxtLink></small> -->
           <small class="block mt-4 mb-2 text-center text-xs text-ut-textGray">Atau masuk menggunakan</small>
           <button type="button" class="bg-ut-textBlue text-white flex justify-center items-center py-2.5 w-full rounded-md font-semibold transition-all duration-150 hover:bg-ut-bgBlue-hover" @click="loginSso">
-            <img class="h-5" src="/assets/images/logo-microsoft.png" alt="Logo Microsoft 365">&nbsp;
+            <img class="h-5" src="/tte-bssn/assets/images/logo-microsoft.png" alt="Logo Microsoft 365">&nbsp;
           </button>
           <!-- <small class="block mt-4 mb-2 text-center text-xs text-ut-textGray">{{ t('login_form.login_condition') }}</small> -->
         </div>
@@ -368,7 +368,7 @@ watch(localeUserSetting, () => {
 <style scoped>
   .bg-ornament::before {
     content: '';
-    background-image: url('/assets/images/background/login-ornament.png');
+    background-image: url('/tte-bssn/assets/images/background/login-ornament.png');
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;

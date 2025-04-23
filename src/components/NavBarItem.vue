@@ -241,7 +241,7 @@ onBeforeUnmount(() => {
       </template>
       <BaseIcon v-if="item.icon !== 'customLangIcon'" :path="item.icon" class="transition-colors" :class="item.isCurrentUser ? 'hidden' : ''" />
       <div v-else>
-        <img :src="`/assets/icons/${locale === 'id-ID' ? availableLocales.id.flag : availableLocales.en.flag}.webp`" class="max-h-[24px]">
+        <img :src="`/tte-bssn/assets/icons/${locale === 'id-ID' ? availableLocales.id.flag : availableLocales.en.flag}.webp`" class="max-h-[24px]">
       </div>
       <BaseIcon
         v-if="item.menu"
