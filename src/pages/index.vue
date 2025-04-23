@@ -36,13 +36,15 @@ onBeforeMount( async () => {
     // Akses token dari data yang sudah di-parse
     const token = vuexObj?.authService?.token
 
-    // Memperbarui sesi dengan token baru
-    if (session.value?.token !== undefined)
-      await overwrite({ token })
-    else
-      await update({ token })
+    // // Memperbarui sesi dengan token baru
+    // if (session.value?.token !== undefined)
+    //   await overwrite({ token })
+    // else
+    await update({ token })
 
     await update({ user: vuexObj?.authService?.isUser?.user })
+
+    console.log('sessionnya:', session.value)
     const mySession = await AuthApi.getSession(token)
     if (mySession.data.mySession) {
       const rolesUser = mySession.data.mySession?.userBssn.roles.sort((a, b) => a.id - b.id)
