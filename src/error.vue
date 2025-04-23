@@ -10,7 +10,7 @@ useHead({
 <template>
   <div class="error-container">
     <div v-if="(error.statusCode === 404)">
-      <img class="!aspect-auto" src="/tte-bssn/assets/images/404.webp" alt="Error 404" width="400px">
+      <img class="!aspect-auto" :src="`${useNuxtApp().$config.app.baseURL}assets/images/404.webp`" alt="Error 404" width="400px">
       <h1 class="text-center font-semibold">
         Laman yang Anda cari tidak ditemukan.
       </h1>
@@ -28,7 +28,7 @@ useHead({
       </NuxtLink>
     </div>
     <div v-else>
-      <img src="/tte-bssn/assets/images/error.webp" alt="Error 500" width="340px">
+      <img :src="`${useNuxtApp().$config.app.baseURL}assets/images/error.webp`" alt="Error 500" width="340px">
       <h1 class="text-center font-semibold">
         Terjadi kesalahan pada sistem.
       </h1>
