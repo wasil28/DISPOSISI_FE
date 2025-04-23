@@ -13,12 +13,12 @@ export default defineNuxtConfig({
     head: {
       charset: 'UTF-8',
       viewport: 'width=device-width, initial-scale=1',
-      script: [
-        {
-          src: '/ckeditor/ckeditor.js',
-          defer: true,
-        },
-      ],
+      // script: [
+      //   {
+      //     src: '/ckeditor/ckeditor.js',
+      //     defer: true,
+      //   },
+      // ],
     },
     // link: [
     //   { rel: 'stylesheet', href: 'https://cdn.ckeditor.com/4.16.2/standard-all/ckeditor.css' }
