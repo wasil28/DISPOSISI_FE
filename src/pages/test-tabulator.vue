@@ -18,7 +18,7 @@
 import { ref, onMounted, watch } from 'vue';
 import DynamicTable from '@/components/TableTabulator.vue'; // Ganti dengan path ke komponen tabel dinamis
 import { useLazyAsyncData } from 'nuxt/app'; // Import dari Nuxt
-import { BahanAjarApi } from '~/apis'; // Import API Anda
+// import { BahanAjarApi } from '~/apis'; // Import API Anda
 import type { sorter } from '~/types/tableTypes';
 const { session } = await useSession()
 
@@ -68,24 +68,24 @@ watch([currentPage, searchQuery], async () => {
 
 // Fungsi untuk mengambil data dari API
 const fetchData = async () => {
-  try {
-    const result = await BahanAjarApi.getAllData({
-      start: currentPage.value,
-      offset: pageSize.value,
-      order: sort.value.direction.toUpperCase(),
-      orderBy: sort.value.column,
-      search: searchQuery.value,
-      filter: {},
-    }, token);
-    // Pastikan untuk memperbarui allData dan totalItems
-    allData.value = result?.data||[]; // Update allData
-    totalItems.value = result?.totalItems||0; // Update totalItems
+  // try {
+  //   const result = await BahanAjarApi.getAllData({
+  //     start: currentPage.value,
+  //     offset: pageSize.value,
+  //     order: sort.value.direction.toUpperCase(),
+  //     orderBy: sort.value.column,
+  //     search: searchQuery.value,
+  //     filter: {},
+  //   }, token);
+  //   // Pastikan untuk memperbarui allData dan totalItems
+  //   allData.value = result?.data||[]; // Update allData
+  //   totalItems.value = result?.totalItems||0; // Update totalItems
 
-    return { data: result?.data||[], totalItems: result?.totalItems||0 }; // Kembalikan hasil
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    return { data: [], totalItems: 0 }; // Kembalikan nilai default jika ada error
-  }
+  //   return { data: result?.data||[], totalItems: result?.totalItems||0 }; // Kembalikan hasil
+  // } catch (error) {
+  //   console.error("Error fetching data:", error);
+  //   return { data: [], totalItems: 0 }; // Kembalikan nilai default jika ada error
+  // }
 };
 
 
