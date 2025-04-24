@@ -46,8 +46,8 @@ onBeforeMount( async () => {
 
     console.log('sessionnya:', session.value)
     const mySession = await AuthApi.getSession(token)
-    if (mySession.data.mySession) {
-      const rolesUser = mySession.data.mySession?.userBssn.roles.sort((a, b) => a.id - b.id)
+    if (mySession?.data?.mySession) {
+      const rolesUser = mySession?.data?.mySession?.userBssn.roles.sort((a, b) => a.id - b.id)
       // Check status admisi
       stopLoading()
       // if (['RL11', 'RL12'].includes(rolesUser[0].kode)) { // Penulis dan penelaah
@@ -61,10 +61,33 @@ onBeforeMount( async () => {
         await navigateTo('/adminpanel', { replace: true })
       }
       // }
+    }else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Silakan Login Kembali, token telah kadaluarsa!',
+        timer: 2000,
+        showConfirmButton: false,
+      }).then(async () => {
+        localStorage.removeItem('vuex')
+        await navigateTo('/logout', { replace: true })
+        stopLoading()
+      })
+      stopLoading()
     }
     stopLoading()
   } else {
     console.log('Data tidak ditemukan di localStorage')
+    Swal.fire({
+        icon: 'error',
+        title: 'Silakan Login Kembali, token telah kadaluarsa!',
+        timer: 2000,
+        showConfirmButton: false,
+      }).then(async () => {
+        localStorage.removeItem('vuex')
+        await navigateTo('/logout', { replace: true })
+        stopLoading()
+      })
+      stopLoading()
   }
 })
 
