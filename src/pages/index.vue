@@ -28,19 +28,19 @@ const localeUserSetting = ref<CookieRef<string>>(useCookie('i18n_utkurikulum'))
 
 onBeforeMount( async () => {
   startLoading()
-  const vuexData = localStorage.getItem('vuex')
+  const vuexData = await localStorage.getItem('vuex')
   
   if (vuexData) {
     // Parse JSON string menjadi objek JavaScript
-    const vuexObj = JSON.parse(vuexData)
+    const vuexObj = await JSON.parse(vuexData)
     // Akses token dari data yang sudah di-parse
-    const token = vuexObj?.authService?.token
+    const token = await vuexObj?.authService?.token
 
     // // Memperbarui sesi dengan token baru
     // if (session.value?.token !== undefined)
     //   await overwrite({ token })
     // else
-    await update({ token })
+    await update({ token : token })
 
     await update({ user: vuexObj?.authService?.isUser?.user })
 
