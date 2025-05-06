@@ -350,33 +350,58 @@ const saveApprove = async (data) => {
 
   if(password){
 
-    const createMassal = await AssignPenugasanApi.addMassal(resultSaveMassal, password, token)
+    const createMassal = await AssignPenugasanApi.addMassal(resultSaveMassal, password, token);
 
     if (createMassal) {
       const successCount = createMassal.dataSuccess.length;
       const failedCount = createMassal.dataFailed.length;
 
-      if (successCount === 0) {
+      if (false) {
         Swal.fire({
           icon: 'error',
           title: 'Gagal',
           text: `Gagal Menyimpan ${failedCount} data.`,
-          showConfirmButton: true, // Membuat tombol OK untuk menutup Swal
-          confirmButtonText: 'Tutup', // Teks tombol
+          showConfirmButton: true,
+          confirmButtonText: 'Tutup',
         });
       } else {
+        let failedMessages = '';
+        
+        // Menampilkan pesan yang lebih terorganisir untuk data gagal
+        createMassal.dataFailed.forEach(item => {
+          failedMessages += `<p><strong>Nama Mahasiswa:</strong> ${item.namaMahasiswa}<br><strong>Dokumen:</strong> ${item.dokumen}<br><strong>Pesan:</strong> ${item.message}</p>`;
+        });
+        
         Swal.fire({
           icon: 'success',
           title: 'Berhasil',
           html: `
-          <p>Jumlah data tersimpan: ${successCount}</p>
-          ${failedCount > 0 ? `<p>Jumlah data gagal: ${failedCount}</p>` : ''}
+            <p>Jumlah data tersimpan: ${successCount}</p>
+            ${failedCount > 0 ? `<p><strong>Jumlah data gagal: ${failedCount}</strong></p>` : ''}
           `,
-          showConfirmButton: true, // Membuat tombol OK untuk menutup Swal
-          confirmButtonText: 'Tutup', // Teks tombol
-        }).then(() => {
-          selected.value = []
-          fetchDataPembimbing();
+          showConfirmButton: true,
+          confirmButtonText: 'Tutup',
+          showCancelButton: failedCount > 0, // Menampilkan tombol cancel jika ada data gagal
+          cancelButtonText: 'Lihat Rincian Gagal',
+        }).then((result) => {
+          if (result.isDismissed && failedCount > 0) {
+            Swal.fire({
+              icon: 'error',
+              title: 'Rincian Gagal',
+              html: `
+                <h3>Rincian Gagal:</h3>
+                <p>${failedMessages}</p>
+              `,
+              showConfirmButton: true,
+              confirmButtonText: 'Tutup',
+            }).then(() => {
+              selected.value = [];
+              fetchDataPembimbing();  
+            });
+          }else{
+            selected.value = [];
+            fetchDataPembimbing();
+          }
         });
       }
     } else {
@@ -502,6 +527,13 @@ const changeTabs = async (key : string) => {
               </template>
 
               <div class="flex items-center justify-between gap-3 px-4 py-3">
+                <UButton
+                  v-if="item.key === 'PROSES'"
+                  class="bg-ut-primaryBlue hover:bg-ut-asideBlue dark:bg-ut-primaryBlue dark:text-white dark:hover:bg-ut-asideBlue text-xs flex justify-center px-3 py-2"
+                  @click="saveApprove(responsePembimbing.data)"
+                >
+                  Simpan Approve
+                </UButton>
                 <div class="flex space-x-2"></div>
                   <UInput
                     v-model="search"
@@ -697,13 +729,7 @@ const changeTabs = async (key : string) => {
                     }"
                   />
                 </div>
-                <UButton
-                  v-if="item.key === 'PROSES'"
-                  class="bg-ut-primaryBlue hover:bg-ut-asideBlue dark:bg-ut-primaryBlue dark:text-white dark:hover:bg-ut-asideBlue text-xs flex justify-center px-3 py-2"
-                  @click="saveApprove(responsePembimbing.data)"
-                >
-                  Simpan Approve
-                </UButton>
+                
               </template>
             </UCard>
           </template>
