@@ -12,6 +12,7 @@ const { session } = await useSession()
 
 const token = session.value?.token
 const tokenApi = ref(null)
+const urlApi = useRuntimeConfig().public.apiEndpointMaster;
 
 const { query } = useRoute()
 // const noSurat = query.no_surat.toString()
@@ -594,6 +595,8 @@ const changeTabs = async (key : string) => {
                       color="blue"
                       variant="solid"
                       icon="i-heroicons-document-text-20-solid"
+                      :to="`${urlApi}/kegiatan/inbound-bssn/false/${encrypt(row.id)}`"
+                      target="_blank"
                     >
                       
                     </UButton>
@@ -662,6 +665,8 @@ const changeTabs = async (key : string) => {
                       color="blue"
                       variant="solid"
                       icon="i-heroicons-document-text-20-solid"
+                      :to="`${urlApi}/kegiatan/inbound-bssn/true/${encrypt(row.id)}`"
+                      target="_blank"
                     >
                       
                     </UButton>
