@@ -15,7 +15,7 @@ const props = defineProps({
 
 const emit = defineEmits(['menuClick'])
 
-const { session, remove, refresh, update, reset, overwrite } = await useSession()
+const { session, remove, refresh, update, overwrite } = await useSession()
 const token = ref(session.value?.token)
 
 
@@ -61,8 +61,8 @@ const roleData = session.value?.activeRole?.role;
 const ttdExist = reactive({
   value: false
 })
-if(['RL10', 'RL11'].includes(roleData.kode)){
-  // if(mySession.idPengembang != null && mySession.idPengembang != ''){
+if (roleData && roleData.kode && ['RL10', 'RL11'].includes(roleData.kode)) {
+  // if(mySession?.idPengembang != null && mySession?.idPengembang != ''){
   //   const { data } = await PengembangApi.getDatapengembang(mySession.idPengembang , token);
   //   setTimeout(() => {
   //     ttdExist.value = data.fileTtd != null ? false : true
@@ -75,10 +75,7 @@ if(['RL10', 'RL11'].includes(roleData.kode)){
 
 
 const closeTtd = () => {
-  // console.log('closeTtd')
-  // console.log('closeTtdV', mySession.idPengembang != null && mySession.idPengembang != '')
-  // console.log('closeTtdV1', ttdExist.value)
-  if(mySession.idPengembang != null && mySession.idPengembang != ''){
+  if (mySession && mySession.idPengembang != null && mySession.idPengembang != '') {
     if(!ttdExist.value){
       isOpen.uploadTtd = false
     }
@@ -101,7 +98,7 @@ const userEmail = computed(() =>
 )
 
 
-const roleExisting = session.value.activeRole
+const roleExisting = session.value?.activeRole
 const isUbahRoleVisible = (session.value?.dataRole)?.length > 1
 const isUbahTTD = (session.value?.activeRole?.role)?.kode == 'RL10' || (session.value?.activeRole?.role)?.kode == 'RL11' || (session.value?.activeRole?.role)?.kode == 'RL05'
 

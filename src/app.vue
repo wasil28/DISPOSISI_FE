@@ -4,7 +4,7 @@ InitApp()
 const locale = useState<string>('i18n_utkurikulum')
 
 useHead({
-  titleTemplate: '%s - Kurikulum UT',
+  titleTemplate: '%s - DISPOSISI UT',
 })
 useHead({
   link: [

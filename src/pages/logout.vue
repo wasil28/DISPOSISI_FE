@@ -1,5 +1,5 @@
 <script setup>
-const { session, remove, refresh, update, reset, overwrite } = await useSession()
+const { session, remove, refresh, update, overwrite } = await useSession()
 const router = useRouter()
 
 // Set page title

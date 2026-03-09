@@ -63,8 +63,6 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxtjs/turnstile',
     '@pinia/nuxt',
-    '@sidebase/nuxt-auth',
-    '@sidebase/nuxt-session',
     // '@nuxtjs/moment',
     '@unocss/nuxt',
     'nuxt-tiptap-editor',
@@ -82,13 +80,6 @@ export default defineNuxtConfig({
     // { src: '~/plugins/ckeditor.js', mode: 'client' }
   ],
 
-  session: {
-    session: {
-      expiryInSeconds: 60 * 240,
-      rolling: true,
-    },
-  },
-
   routeRules: {
     '/': { prerender: true },
     '/adminpanel/**': { prerender: true },
@@ -100,38 +91,6 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: ['/', '/mahasiswa/**', '/adminpanel/**'],
-    },
-  },
-
-  auth: {
-    // Konfigurasi Sidebase Auth
-    provider: {
-      type: 'local', // Tipe provider, bisa 'local' atau 'oauth'
-      options: {
-        localStorageKey: 'my_app_auth', // Kunci penyimpanan lokal untuk token
-        cookieName: 'my_app_auth_token', // Nama cookie untuk token
-      },
-    },
-    endpoints: {
-      signIn: {
-        path: 'http://192.168.0.179:3333/api/v1/login', // Ubah URL endpoint login
-        method: 'post', // HTTP method untuk login
-        headers: {
-          'Content-Type': 'application/json', // Header yang diperlukan
-        },
-      },
-      signOut: {
-        path: '/api/v1/logout', // URL endpoint logout (opsional)
-        method: 'post', // HTTP method untuk logout (opsional)
-      },
-    },
-    token: {
-      maxAgeInSeconds: 3600 * 24 * 7, // Durasi token dalam detik (default: 3600)
-      storage: 'localStorage', // Tempat penyimpanan token (default: 'localStorage')
-      cookie: {
-        sameSite: 'lax', // Konfigurasi cookie (opsional)
-        secure: true, // Konfigurasi cookie (opsional)
-      },
     },
   },
 

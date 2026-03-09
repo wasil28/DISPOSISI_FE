@@ -1,11 +1,15 @@
 // utils/functions.js
-// const { session, remove, refresh, update, reset, overwrite } = await useSession()
+// const { session, remove, refresh, update, overwrite } = await useSession()
 export const myAsyncFunction = async (parameter: any, currentPageName: any = null) => {
   if (currentPageName == null)
     currentPageName = window.location.pathname
 
   // Pengecekan dengan window.location.pathname
   const findPage = (items: any) => {
+    if (!items || !Array.isArray(items)) {
+      return false
+    }
+
     for (const item of items) {
       const route = currentPageName.replace(/\//g, '').split('?')[0]
       const asideItems = item.to?.replace(/\//g, '')
@@ -38,6 +42,10 @@ export const getAsideMenu = async (parameter: any, currentPageName: any = null) 
     currentPageName = window.location.pathname
 
   const getOtorisasi = (items: any) => {
+    if (!items || !Array.isArray(items)) {
+      return null
+    }
+
     for (const item of items) {
       const route = currentPageName.replace(/\//g, '').split('?')[0]
       const asideItems = item.to?.replace(/\//g, '')

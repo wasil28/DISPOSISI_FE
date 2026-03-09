@@ -22,15 +22,21 @@ export const useMSAuth = () => {
     },
   }
 
-  const msalInstance = useState('msalInstance',
-    () => new PublicClientApplication(msalConfig),
-  )
+  let msalInstance: PublicClientApplication | null = null
+
+  const getMsalInstance = () => {
+    if (!msalInstance) {
+      msalInstance = new PublicClientApplication(msalConfig)
+    }
+    return msalInstance
+  }
 
   async function initialize() {
-    await msalInstance.value.initialize()
+    const instance = getMsalInstance()
+    await instance.initialize()
 
     // Handle redirect promise after login or redirect
-    await msalInstance.value
+    await instance
       .handleRedirectPromise() // Handles the redirect promise and obtains the response
       .then(handleResponse)
       .catch((err) => {
@@ -38,7 +44,7 @@ export const useMSAuth = () => {
       })
 
     // Add event callback for login success
-    msalInstance.value.addEventCallback((event) => {
+    instance.addEventCallback((event) => {
       if (event.eventType === EventType.LOGIN_SUCCESS)
         setupTokenExpirationTimer()
     })
@@ -54,7 +60,8 @@ export const useMSAuth = () => {
 
   // Set up timer for refreshing access token upon expiration
   function setupTokenExpirationTimer() {
-    const accounts = msalInstance.value.getAllAccounts()
+    const instance = getMsalInstance()
+    const accounts = instance.getAllAccounts()
     if (accounts.length > 0) {
       const account = accounts[0]
       if (account.idTokenClaims && account.idTokenClaims.exp) {
@@ -73,8 +80,9 @@ export const useMSAuth = () => {
 
   // Refresh access token
   async function refreshAccessToken(account: any) {
+    const instance = getMsalInstance()
     try {
-      const response = await msalInstance.value.acquireTokenSilent({
+      const response = await instance.acquireTokenSilent({
         account,
         scopes: ['User.Read'],
       })
@@ -93,8 +101,9 @@ export const useMSAuth = () => {
 
   // Sign in with redirect
   async function signIn() {
+    const instance = getMsalInstance()
     try {
-      await msalInstance.value.loginRedirect(loginRequest)
+      await instance.loginRedirect(loginRequest)
     }
     catch (err) {
       console.log('Login error:', err)
@@ -103,12 +112,13 @@ export const useMSAuth = () => {
 
   // Acquire access token silently
   async function acquireTokenSilent() {
-    const accounts = msalInstance.value.getAllAccounts()
+    const instance = getMsalInstance()
+    const accounts = instance.getAllAccounts()
     if (accounts.length > 0) {
       const account = accounts[0]
-      msalInstance.value.setActiveAccount(account)
+      instance.setActiveAccount(account)
       try {
-        const response = await msalInstance.value.acquireTokenSilent({
+        const response = await instance.acquireTokenSilent({
           account,
           scopes: ['User.Read'],
         })
@@ -126,7 +136,8 @@ export const useMSAuth = () => {
 
   // Get all MSAL accounts
   function getAccounts() {
-    return msalInstance.value.getAllAccounts()
+    const instance = getMsalInstance()
+    return instance.getAllAccounts()
   }
 
   // Check if user is authenticated
@@ -136,11 +147,12 @@ export const useMSAuth = () => {
 
   // Sign out user
   function signOut(accountId: string) {
+    const instance = getMsalInstance()
     const account = accountId
-      ? msalInstance.value.getAccountByHomeId(accountId)
+      ? instance.getAccountByHomeId(accountId)
       : null
     if (account) {
-      msalInstance.value.logoutRedirect({
+      instance.logoutRedirect({
         account,
       })
       localStorage.clear()
@@ -152,7 +164,7 @@ export const useMSAuth = () => {
 
   return {
     initialize,
-    msalInstance,
+    msalInstance: getMsalInstance(),
     signIn,
     getAccounts,
     acquireTokenSilent,
@@ -160,3 +172,4 @@ export const useMSAuth = () => {
     signOut,
   }
 }
+

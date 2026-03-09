@@ -10,7 +10,8 @@ export const useLoginSrs = async () => {
   
   // const srsLogin = await Srs.postLoginSrs(param)
   // sessionStorage.setItem('tokenSrs', srsLogin.token)
-  const srsLogin = await Srs.postLoginSrsBE()
-  sessionStorage.setItem('tokenSrs', srsLogin)
-  return srsLogin
+  // const srsLogin = await Srs.postLoginSrsBE()
+  // sessionStorage.setItem('tokenSrs', srsLogin)
+  // return srsLogin
+  return 'adalah pokonya'
 }

@@ -1,7 +1,7 @@
 {
-  "name": "bssn-tte-ut",
+  "name": "disposisi-fe",
   "version": "1.0.0",
-  "description": "Aplikasi BSSN TTE Universitas Terbuka",
+  "description": "Aplikasi DISPOSISI Universitas Terbuka",
   "author": "DSI - WASIL",
   "contributors": [
     {
@@ -58,6 +58,7 @@
     "postcss-nesting": "^12.0.2",
     "qalendar": "^3.8.1",
     "quill": "^2.0.3",
+    "socket.io-client": "^4.8.1",
     "sweetalert2": "^11.10.4",
     "tabulator-tables": "^6.3.0",
     "tinymce": "^6.2.0",
@@ -76,8 +77,6 @@
     "@nuxtjs/tailwindcss": "^6.10.4",
     "@nuxtjs/turnstile": "^0.6.3",
     "@samk-dev/nuxt-vcalendar": "^1.0.4",
-    "@sidebase/nuxt-auth": "^0.6.7",
-    "@sidebase/nuxt-session": "^0.2.8",
     "@types/crypto-js": "^4.2.2",
     "@types/tabulator-tables": "^6.2.3",
     "eslint": "8.28.0",

@@ -12,10 +12,10 @@ import { Srs } from './external/srs'
 import { MasterUmum } from './referensi/masterUmum.api'
 
 // Asign Penugasan
-import { AssignPenugasanApi } from './bssn/assign-penugasan.api'
+// import { AssignPenugasanApi } from './bssn/assign-penugasan.api'
 
 // Pejabat Penandatangan
-import { PejabatPenandatanganApi } from './bssn/pejabat-penandatangan.api'
+// import { PejabatPenandatanganApi } from './bssn/pejabat-penandatangan.api'
 
 import { handleApiError, handleGraphError, returnDataGraph, withLoading } from '~/utils/error.handler'
 
@@ -36,10 +36,10 @@ export {
   MasterUmum,
   
   // Asign Penugasan
-  AssignPenugasanApi,
+  // AssignPenugasanApi,
 
   // Pejabat Penandatangan
-  PejabatPenandatanganApi,
+  // PejabatPenandatanganApi,
 
   // Error handler
   handleApiError,

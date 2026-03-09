@@ -4,9 +4,9 @@ import Swal from 'sweetalert2'
 const loadingCount = 0
 const loadingPromise = null
 let loadingAwait = 0
-let loadingSwal = null
+let loadingSwal: any = null
 
-const showSwal = (icon: string, title: string, text: string) => {
+const showSwal = (icon: any, title: string, text: string) => {
   Swal.fire({
     icon,
     title,
@@ -71,7 +71,7 @@ const showSwal = (icon: string, title: string, text: string) => {
 // }
 
 const startLoading = () => {
-  // if (loadingAwait > 0 && !loadingSwal) {
+  if (process.client) {
     loadingSwal = Swal.fire({
       title: 'Memuat...',
       allowOutsideClick: false,
@@ -79,14 +79,14 @@ const startLoading = () => {
         Swal.showLoading()
       },
     })
-  // }
+  }
 }
 
 const stopLoading = () => {
-  // if (loadingAwait === 0 && loadingSwal) {
+  if (process.client) {
     loadingSwal?.close() // Menutup swal loading yang sedang ditampilkan
     loadingSwal = null // Reset loadingSwal
-  // }
+  }
 }
 
 const handleClientError = (statusCode: number) => {
@@ -128,10 +128,16 @@ export const handleApiError = (error: any) => {
   }
 
   stopLoading() // Berhenti loading setelah menangani kesalahan
-  if (error.response.status == 401)
-    return window.location.href = '/logout'
-  else
-    return error.response.data
+  if (error.response?.status == 401) {
+    if (process.client) {
+      return window.location.href = '/logout'
+    } else {
+      return navigateTo('/logout')
+    }
+  }
+  else {
+    return error.response?.data
+  }
 }
 
 export const handleGraphError = (error: any) => {
@@ -150,18 +156,28 @@ export const handleGraphError = (error: any) => {
   }
 
   stopLoading() // Berhenti loading setelah menangani kesalahan
-  if (error.response.status == 401)
-    return window.location.href = '/logout'
-  else
-    showSwal('error', 'Kesalahan API', error.response.data.errors[0].message)
+  if (error.response?.status == 401) {
+    if (process.client) {
+      return window.location.href = '/logout'
+    } else {
+      return navigateTo('/logout')
+    }
+  } else {
+    showSwal('error', 'Kesalahan API', error.response?.data?.errors?.[0]?.message || 'Kesalahan API')
+  }
   return null
 }
 
 export const returnDataGraph = (response: any) => {
   stopLoading()
   if (response.data.data == null || response.data.errors) {
-    if (response.data.errors[0].message == 'Sesi anda telah berakhir.')
-      return window.location.href = '/logout'
+    if (response.data.errors[0].message == 'Sesi anda telah berakhir.') {
+      if (process.client) {
+        return window.location.href = '/logout'
+      } else {
+        return navigateTo('/logout')
+      }
+    }
 
     showSwal('error', 'Terjadi Kesalahan', response.data.errors[0].message)
     return null

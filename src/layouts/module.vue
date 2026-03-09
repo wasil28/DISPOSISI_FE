@@ -15,7 +15,7 @@ import { useLayoutStore } from '~/stores/layoutStore'
 
 const layoutStore = useLayoutStore()
 
-const { session, remove, refresh, update, reset, overwrite } = await useSession()
+const { session, remove, refresh, update, overwrite } = await useSession()
 
 const menuAside = ref([])
 const isAccess = ref(false)

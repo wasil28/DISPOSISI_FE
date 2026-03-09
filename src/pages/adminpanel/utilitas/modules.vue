@@ -18,7 +18,7 @@ definePageMeta({
 
 const { t } = useLang()
 
-const { session, remove, refresh, update, reset, overwrite } = await useSession()
+const { session, remove, refresh, update, overwrite } = await useSession()
 const { token } = session.value
 const otorisasi = ref({ allow_approve: false, allow_delete: false, allow_download: false, allow_edit: false, allow_new: false, allow_view: false })
 
